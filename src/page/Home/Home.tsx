@@ -14,7 +14,6 @@ function App() {
           <Search/>
 
 
-
           {/*<div className="notes-block">*/}
           {/*  <div className="notes" id="notes">*/}
           {/*    <div className="grid-sizer"></div>*/}
