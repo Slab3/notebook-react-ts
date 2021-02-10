@@ -6,6 +6,7 @@ import '../../styles/main.scss';
 import Test from '../../components/Test';
 // norm imports
 import Search from '../../components/Common/InputSearch/InputSearch';
+import NewItemBtn from '../../components/Common/NewItemBtn/NewItemBtn';
 
 function App() {
   return (
@@ -17,18 +18,10 @@ function App() {
         <section className="container main-section">
           <Search/>
 
+          <div className="notes" id="notes">
 
-          {/*<div className="notes-block">*/}
-          {/*  <div className="notes" id="notes">*/}
-          {/*    <div className="grid-sizer"></div>*/}
-
-          {/*    /!*Button add new*!/*/}
-          {/*    <div className="add-item item-list" id="addItem">*/}
-          {/*      <p className="plus">+</p>*/}
-          {/*      <p className="addNew">Add New</p>*/}
-          {/*    </div>*/}
-          {/*  </div>*/}
-          {/*</div>*/}
+            <NewItemBtn/>
+          </div>
         </section>
 
 
