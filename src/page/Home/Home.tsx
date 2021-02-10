@@ -4,12 +4,16 @@
 import React from 'react';
 import '../../styles/main.scss';
 import Test from '../../components/Test';
-// norm inputs
+// norm imports
 import Search from '../../components/Common/InputSearch/InputSearch';
 
 function App() {
   return (
       <>
+        <header className="header">
+          <h2>Notebook</h2>
+        </header>
+
         <section className="container main-section">
           <Search/>
 
