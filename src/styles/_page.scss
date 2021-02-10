@@ -1,7 +1,103 @@
+.notes {
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  div:hover { //delete button visib
+    div span {
+      opacity: 1;
+    }
+    div button { //add item visib
+      opacity: 1;
+    }
+  };
+}
 
 
-// items
-.addItem, .note-item {
-  width: calc(32% - 10px);
-  margin-bottom: 20px;
+.note-list-item {
+  &.done textarea {
+    text-decoration: line-through;
+  }
+}
+//
+
+// title from item
+.title {
+  padding: 0 15px;
+
+}
+.title-input { // textarea
+  font-weight: 600;
+
+}
+
+// checkbox block
+.checkbox-block {
+  padding: 5px 15px;
+  display: flex;
+  background: transparent;
+}
+.list-item-input {
+  padding: 0 10px;
+  width: 100%;
+}
+
+// buttons delete & add item of note
+
+.delete-item, .add-textarea {
+  font-size: 14px;
+  border-radius: 5px;
+  color: white;
+  text-align: center;
+  opacity: 0;
+  cursor: pointer;
+  transition: .2s;
+}
+
+// delete Note
+.delete-block {
+  position: absolute;
+  right: 10px;
+}
+.delete-item {
+  background-color: #d1766f;
+  padding: 0 4px;
+  &:hover {
+    background-color: #b96460;
+  }
+}
+// delete item note
+.delete-item-block {
+
+}
+
+// add new item
+.block-add-textarea {
+  text-align: center;
+  margin-top: -15px;
+}
+.add-textarea {
+  width: 70%;
+  background-color: rgba(69, 136, 249, 0.9); //like an border of "add new" button
+  border: none;
+  outline: none;
+  &:hover {
+    background-color: rgba(69, 109, 219, 0.9);
+  }
+
+}
+
+.add-date-block {
+  margin-top: 8px;
+  text-align: right;
+  font-size: 10.5px;
+  //cursor: default;
+}
+
+.date-field {
+  padding: 2px 8px;
+  border-radius: 8px;
+  border: 1px solid lightblue;
 }

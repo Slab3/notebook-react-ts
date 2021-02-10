@@ -2,7 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Test from './components/Test';
-import Fex from './components/Common/DeleteBtn/DeleteBtn';
+import DeleteBtn from './components/Common/DeleteBtn/DeleteBtn';
 
 
 /*в компонентах в коммон элементе, находится сам компонент index.tsx, и index.module.scss,
@@ -26,7 +26,7 @@ import Fex from './components/Common/DeleteBtn/DeleteBtn';
 //         </a>
 //       </header>
 //       <Test />
-//       <Fex />
+//       <DeleteBtn />
 //     </div>
 //   );
 // }

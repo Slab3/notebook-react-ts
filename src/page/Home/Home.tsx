@@ -3,10 +3,8 @@
 
 import React from 'react';
 import '../../styles/main.scss';
-import Test from '../../components/Test';
 // norm imports
-import Search from '../../components/Common/InputSearch/InputSearch';
-import NewItemBtn from '../../components/Common/NewItemBtn/NewItemBtn';
+import { BtnAddItem , DeleteBtn, Search, NoteWrapper } from '../../components/index';
 
 function App() {
   return (
@@ -19,17 +17,16 @@ function App() {
           <Search/>
 
           <div className="notes" id="notes">
+            <NoteWrapper/>
+            <NoteWrapper/>
+            <NoteWrapper/>
+            <NoteWrapper/>
+            <NoteWrapper/>
+            {/*there will creates note items*/}
+            <BtnAddItem/>
 
-            <NewItemBtn/>
           </div>
         </section>
-
-
-
-        {/*tests*/}
-        <div className="App">
-          <Test />
-        </div>
       </>
   );
 }

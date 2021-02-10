@@ -1,12 +1,13 @@
 import React from 'react';
-import './DeleteBtn.module.scss'
+import styles from './DeleteBtn.module.scss';
 
-function Fex() {
+
+function DeleteBtn() {
   return (
-      <p>
-        testing fex
-      </p>
+      <div className={styles.deleteBlock}>
+        <span className={styles.deleteItem}>Х</span>
+      </div>
   )
 }
 
-export default Fex;
+export default DeleteBtn;

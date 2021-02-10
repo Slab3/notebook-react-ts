@@ -1,8 +1,8 @@
 import React from 'react';
-import styles from './NewItemBtn.module.scss';
-import '../../../styles/main.scss';
+import styles from './BtnAddItem.module.scss';
+// import '../../../styles/main.scss';
 
-export default function NewItemBtn() {
+export default function BtnAddItem() {
   return (
       <div className={styles.addItem} id="addItem">
         <p className={styles.plus}>+</p>
