@@ -21,9 +21,12 @@ function App() {
             <NoteWrapper/>
             <NoteWrapper/>
             <NoteWrapper/>
-            <NoteWrapper/>
             {/*there will creates note items*/}
             <BtnAddNote/>
+            <NoteWrapper/>
+            <NoteWrapper/>
+            <NoteWrapper/>
+
           </div>
         </section>
       </>

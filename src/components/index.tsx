@@ -1,5 +1,5 @@
 import Search from './Common/InputSearch/InputSearch';
-import BtnAddNote from './Common/BtnAddItem/BtnAddNote';
+import BtnAddNote from './Common/BtnAddNote/BtnAddNote';
 import NoteWrapper from './Common/NoteWrapper/NoteWrapper';
 import DeleteBtn from './Common/DeleteBtn/DeleteBtn';
 import NoteTitle from './Common/NoteTitle/NoteTitle';

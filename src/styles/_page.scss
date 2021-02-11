@@ -1,10 +1,11 @@
 // Home.tsx
-.notes {
+.notes { //grid-container
   margin: 0 auto;
   text-align: center;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
+
 
   div:hover { //delete button visib
     div span {
