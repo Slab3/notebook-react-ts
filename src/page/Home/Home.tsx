@@ -4,7 +4,7 @@
 import React from 'react';
 import '../../styles/main.scss';
 // norm imports
-import { BtnAddItem , DeleteBtn, Search, NoteWrapper } from '../../components/index';
+import { BtnAddNote , Search, NoteWrapper } from '../../components/index';
 
 function App() {
   return (
@@ -23,8 +23,7 @@ function App() {
             <NoteWrapper/>
             <NoteWrapper/>
             {/*there will creates note items*/}
-            <BtnAddItem/>
-
+            <BtnAddNote/>
           </div>
         </section>
       </>

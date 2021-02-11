@@ -14,27 +14,21 @@
     }
   };
 }
+//end of okay:
 
 
-.note-list-item {
-  &.done textarea {
-    text-decoration: line-through;
-  }
-}
-//
 
-// title from item
-.title {
-  padding: 0 15px;
+//.note-list-item {
+//  &.done textarea {
+//    text-decoration: line-through;
+//  }
+//}
 
-}
-.title-input { // textarea
-  font-weight: 600;
 
-}
+
 
 // checkbox block
-.checkbox-block {
+.checkbox-n-item-block {
   padding: 5px 15px;
   display: flex;
   background: transparent;
@@ -46,7 +40,7 @@
 
 // buttons delete & add item of note
 
-.delete-item, .add-textarea {
+.add-textarea {
   font-size: 14px;
   border-radius: 5px;
   color: white;
@@ -56,27 +50,12 @@
   transition: .2s;
 }
 
-// delete Note
-.delete-block {
-  position: absolute;
-  right: 10px;
-}
-.delete-item {
-  background-color: #d1766f;
-  padding: 0 4px;
-  &:hover {
-    background-color: #b96460;
-  }
-}
-// delete item note
-.delete-item-block {
 
-}
 
 // add new item
 .block-add-textarea {
   text-align: center;
-  margin-top: -15px;
+  //margin-top: -15px;
 }
 .add-textarea {
   width: 70%;

@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './NoteWrapper.module.scss';
 import '../../../styles/main.scss';
-import DeleteBtn from '../DeleteBtn/DeleteBtn';
+import { DeleteBtn, NoteTitle } from '../../index';
 
 
 export default function NoteWrapper() {
@@ -10,13 +10,10 @@ export default function NoteWrapper() {
         <DeleteBtn/>
         {/*end--*/}
 
-        <span className="title">
-          <textarea className="title-input" placeholder="Title" maxLength={50}>
-          </textarea>
-        </span>
+        <NoteTitle/>
 
         <div className="body">
-          <div className="note-list-item checkbox-block">
+          <div className="note-list-item checkbox-n-item-block">
             <input type="checkbox"/>
               <textarea className="list-item-input" placeholder="Add note" maxLength={2000}>
               </textarea>
