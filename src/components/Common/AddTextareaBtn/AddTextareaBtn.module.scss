@@ -1,0 +1,21 @@
+//.blockAddArea {
+//  text-align: center;
+//  //margin-top: -15px;
+//}
+.addTextarea {
+  font-size: 14px;
+  border-radius: 5px;
+  color: white;
+  text-align: center;
+  opacity: 0;
+  cursor: pointer;
+  transition: .2s;
+
+  width: 70%;
+  background-color: rgba(69, 136, 249, 0.9); //like an border of "add new" button
+  border: none;
+  outline: none;
+  &:hover {
+    background-color: rgba(69, 109, 219, 0.9);
+  }
+}

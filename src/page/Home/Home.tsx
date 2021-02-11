@@ -3,7 +3,6 @@
 
 import React from 'react';
 import '../../styles/main.scss';
-// norm imports
 import { BtnAddNote , Search, NoteWrapper } from '../../components/index';
 
 function App() {
@@ -17,6 +16,7 @@ function App() {
           <Search/>
 
           <div className="notes" id="notes">
+            {/*test items*/}
             <NoteWrapper/>
             <NoteWrapper/>
             <NoteWrapper/>
