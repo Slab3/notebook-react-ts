@@ -5,6 +5,7 @@ import { DeleteBtn, NoteTitle, BodyNoteText, AddTextareaBtn, DateField } from '.
 
 
 export default function NoteWrapper() {
+  console.log("notewrapper... clicked... added... fdh ");
   return (
       <div className={styles.noteItem}>
         <DeleteBtn/>

@@ -4,7 +4,7 @@ import styles from './DeleteBtn.module.scss';
 
 function DeleteBtn() {
   return (
-      <div className={styles.deleteBlock}>
+      <div className={styles.deleteBlock} onClick={() => console.log("deleteItem")}>
         <span className={styles.deleteItem}>Х</span>
       </div>
   )
