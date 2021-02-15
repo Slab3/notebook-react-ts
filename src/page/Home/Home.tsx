@@ -1,13 +1,25 @@
 /*в компонентах в коммон элементе, находится сам компонент index.tsx, и index.module.scss,
 в модульных элементах, только стили к этому элементу.*/
 
-import React, { useState } from 'react';
+import React, {ReactNode, useState} from 'react';
 import '../../styles/main.scss';
 import { BtnAddNote , Search, NoteWrapper } from '../../components/index';
+// import {object} from "prop-types";
 
 function App() {
   //  Вызов useState возвращает две вещи: текущее значение состояния и функцию для его обновления.
-  const [notes, addNote] = useState([]);
+  // interface INotes {
+  //   notes: [];
+  //   createNote: ReactNode;
+  // }
+  // https://codepen.io/gaearon/pen/ZXeOGM?editors=0010
+  // keys ;
+
+  let [notes, setNote] = useState([] as any);
+
+  function createNote(item: object) {
+    setNote([...notes, item]);
+  }
 
   return (
       <>
@@ -17,34 +29,14 @@ function App() {
         <section className="container main-section">
           <Search/>
           <div className="notes" id="notes">
-            {/*test items*/}
-            <NoteWrapper/>
-            <NoteWrapper/>
-            <NoteWrapper/>
-            <NoteWrapper/>
-            {/*there will creates note items*/}
-            <BtnAddNote/>
-            <NoteWrapper/>
-            <NoteWrapper/>
-            <NoteWrapper/>
-            {Example()}
+            {notes.map((args: any) => (
+                <NoteWrapper key={args} {...args} />
+                // <NoteWrapper key={args.text} {...args} />
+              ))}
+            <BtnAddNote createNote={createNote} />
           </div>
         </section>
       </>
-  );
-}
-
-function Example() {
-  // Объявляем новую переменную состояния "count"
-  const [count, setCount] = useState(0);
-
-  return (
-      <div>
-        <p>Вы нажали {count} раз</p>
-        <button onClick={() => setCount(count + 1)}>
-          Нажми на меня
-        </button>
-      </div>
   );
 }
 
