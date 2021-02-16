@@ -4,21 +4,23 @@
 import React, {ReactNode, useState} from 'react';
 import '../../styles/main.scss';
 import { BtnAddNote , Search, NoteWrapper } from '../../components/index';
-// import {object} from "prop-types";
+import { randomUniqueString } from "../../util";
 
 function App() {
-  //  Вызов useState возвращает две вещи: текущее значение состояния и функцию для его обновления.
-  // interface INotes {
-  //   notes: [];
-  //   createNote: ReactNode;
-  // }
-  // https://codepen.io/gaearon/pen/ZXeOGM?editors=0010
-  // keys ;
 
-  let [notes, setNote] = useState([] as any);
+  type Note = {
+    id: string;
+    title: string;
+    description: string;
 
-  function createNote(item: object) {
-    setNote([...notes, item]);
+  };
+
+  let [notes, setNote] = useState<Note[]>([]);
+
+  function createNote(note: Note) {
+    note.id = randomUniqueString('id-');
+
+    setNote([...notes, note]);
   }
 
   return (
@@ -30,8 +32,7 @@ function App() {
           <Search/>
           <div className="notes" id="notes">
             {notes.map((args: any) => (
-                <NoteWrapper key={args} {...args} />
-                // <NoteWrapper key={args.text} {...args} />
+                <NoteWrapper key={args.id} {...args} />
               ))}
             <BtnAddNote createNote={createNote} />
           </div>
