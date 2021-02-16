@@ -8,6 +8,7 @@ import { randomUniqueString } from "../../util";
 
 function App() {
 
+  // functional for "create new NOTE" === \/
   type Note = {
     id: string;
     title: string;
@@ -18,10 +19,11 @@ function App() {
   let [notes, setNote] = useState<Note[]>([]);
 
   function createNote(note: Note) {
-    note.id = randomUniqueString('id-');
+    note.id = randomUniqueString('noteId-');
 
     setNote([...notes, note]);
   }
+  // functional for "create new NOTE" === /\
 
   return (
       <>

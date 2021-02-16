@@ -1,9 +1,6 @@
 import React, {useState} from 'react';
 import styles from './BtnAddNote.module.scss';
 
-// import ReactDOM from 'react-dom';
-// import '../../../styles/main.scss';
-
 export default function BtnAddNote({ createNote }: any) {
   const [counter, setCounter] = useState(0);
 
@@ -17,7 +14,8 @@ export default function BtnAddNote({ createNote }: any) {
               id: '',
               title: '',
               description: '',
-            })
+            });
+            setCounter(counter+1)
           }}
       >
         <p className={styles.plus}>+</p>

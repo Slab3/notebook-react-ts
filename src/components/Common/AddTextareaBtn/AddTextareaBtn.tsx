@@ -5,11 +5,10 @@ export default function AddTextareaBtn({ createItem }: any) {
   return (
       <div
           className={styles.blockAddArea}
-          // onClick={() => console.log("addTextarea")}
           onClick={() => {
             createItem({
               id: '',
-              title: '',
+              checkbox: 'checked',
               description: '',
             })
           }}
