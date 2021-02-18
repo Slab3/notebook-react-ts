@@ -5,11 +5,11 @@ import styles from './DeleteBtn.module.scss';
 function DeleteBtn({ handleRemoveNote }: any) {
   return (
       <div className={styles.deleteBlock}
-           // onClick={() => {
-           //   handleRemoveNote({
-           //     id: '',
-           //   });
-           // }}
+           onClick={() => {
+             handleRemoveNote({
+               id: '',
+             });
+           }}
       >
         <span className={styles.deleteItem}>Х</span>
       </div>

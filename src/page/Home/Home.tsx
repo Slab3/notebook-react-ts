@@ -1,21 +1,16 @@
-/*в компонентах в коммон элементе, находится сам компонент index.tsx, и index.module.scss,
-в модульных элементах, только стили к этому элементу.*/
-
-import React, {ReactNode, useState} from 'react';
+import React, { useState } from 'react';
 import '../../styles/main.scss';
 import { BtnAddNote , Search, NoteWrapper } from '../../components/index';
 import { randomUniqueString } from "../../util";
+import { NoteContext } from "../../NoteContext";
 
 function App() {
-
   // functional for "create new NOTE" === \/
   type Note = {
     id: string;
     title: string;
     description: string;
-
   };
-
   let [notes, setNote] = useState<Note[]>([]);
 
   function createNote(note: Note) {
@@ -25,6 +20,13 @@ function App() {
   }
   // functional for "create new NOTE" === /\
 
+
+  //testing context
+  const [value, setValue] = useState("hello from context");
+  //testing end
+
+
+
   return (
       <>
         <header className="header">
@@ -32,12 +34,14 @@ function App() {
         </header>
         <section className="container main-section">
           <Search/>
-          <div className="notes" id="notes">
-            {notes.map((args: any) => (
-                <NoteWrapper key={args.id} {...args} />
-              ))}
-            <BtnAddNote createNote={createNote} />
-          </div>
+          <NoteContext.Provider value={{value, setValue}}> {/*providing context*/} {/*here must be: notes, setNote*/}
+            <div className="notes" id="notes">
+              {notes.map((args: any) => (
+                  <NoteWrapper key={args.id} {...args} />
+                ))}
+              <BtnAddNote createNote={createNote} />
+            </div>
+          </NoteContext.Provider>
         </section>
       </>
   );
