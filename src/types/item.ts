@@ -4,5 +4,5 @@ export interface Item {
   title?: string;
   name?: string;
   description?: string;
-  time: string;
+  time?: string;
 }

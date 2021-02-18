@@ -1,5 +1,5 @@
 import React from 'react';
-import { CheckboxNTextWrapper } from '../../index';
+import { ItemCheckbox, ItemText } from '../../index';
 // import styles from './BodyNoteText.module.scss'
 
 interface BodyNoteText {
@@ -9,7 +9,10 @@ interface BodyNoteText {
 export default function BodyNoteText({ onChange }: BodyNoteText) {
   return (
       <div className="body">
-        <CheckboxNTextWrapper/>
+        <div className="checkbox-N-Text">
+          <ItemCheckbox/>
+          <ItemText/>
+        </div>
       </div>
   )
 }
