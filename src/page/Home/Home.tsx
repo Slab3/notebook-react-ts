@@ -1,31 +1,10 @@
-import React, { useState } from 'react';
+import React, {useContext, useState} from 'react';
 import '../../styles/main.scss';
 import { BtnAddNote , Search, NoteWrapper } from '../../components/index';
-import { randomUniqueString } from "../../util";
-import { NoteContext } from "../../NoteContext";
+import NotesProvider, { Notes } from "../../context/notes";
 
 function App() {
-  // functional for "create new NOTE" === \/
-  type Note = {
-    id: string;
-    title: string;
-    description: string;
-  };
-  let [notes, setNote] = useState<Note[]>([]);
-
-  function createNote(note: Note) {
-    note.id = randomUniqueString('noteId-');
-
-    setNote([...notes, note]);
-  }
-  // functional for "create new NOTE" === /\
-
-
-  //testing context
-  const [value, setValue] = useState("hello from context");
-  //testing end
-
-
+  const { notes } = useContext(Notes);
 
   return (
       <>
@@ -34,14 +13,14 @@ function App() {
         </header>
         <section className="container main-section">
           <Search/>
-          <NoteContext.Provider value={{value, setValue}}> {/*providing context*/} {/*here must be: notes, setNote*/}
+          <NotesProvider>
             <div className="notes" id="notes">
               {notes.map((args: any) => (
                   <NoteWrapper key={args.id} {...args} />
                 ))}
-              <BtnAddNote createNote={createNote} />
+              <BtnAddNote />
             </div>
-          </NoteContext.Provider>
+          </NotesProvider>
         </section>
       </>
   );

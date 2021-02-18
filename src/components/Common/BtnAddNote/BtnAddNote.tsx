@@ -1,11 +1,10 @@
-import React, {useContext, useState} from 'react';
+import React, { useState } from 'react';
 import styles from './BtnAddNote.module.scss';
-import {NoteContext} from "../../../NoteContext";
+import { useCreateNote } from "../../../context/notes";
 
-export default function BtnAddNote({ createNote }: any) {
+export default function BtnAddNote() {
+  const createNote = useCreateNote();
   const [counter, setCounter] = useState(0);
-
-  const {value, setValue} = useContext(NoteContext);
 
   return (
       <div
@@ -24,8 +23,7 @@ export default function BtnAddNote({ createNote }: any) {
       >
         <p className={styles.plus}>+</p>
         <p>Add New</p>
-        <div>{value}</div> {/*context using test*/}
-        <button onClick={() => setValue("nice value!")}>change value</button>
+
       </div>
   )
 }
