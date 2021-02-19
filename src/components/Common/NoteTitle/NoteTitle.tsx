@@ -1,20 +1,12 @@
-import React, {useContext, useState} from "react";
+import React from "react";
 import styles from "./NoteTitle.module.scss";
-// import {NoteContext} from "../../../NoteContext";
-import {Notes, useUpdateNote} from "../../../context/notes";
-import {Item} from "../../../types/item";
 
 interface INoteTitle {
-  onChange: (title: Item) => void;
+  title: string;
+  onChange: (title: string) => void;
 }
 
-export default function NoteTitle({ onChange }: INoteTitle) {
-  const updateNote = useUpdateNote();
-  const { notes } = useContext(Notes); // using context
-
-
-  // const { updateItem } = useContext(NoteContext);
-
+export default function NoteTitle({ title, onChange }: INoteTitle) {
   return (
     <span className={styles.title}>
       <textarea
@@ -22,12 +14,9 @@ export default function NoteTitle({ onChange }: INoteTitle) {
         placeholder="Title"
         maxLength={50}
         onChange={() => {
-          updateNote({
-            id: '',
-          }, {
-            note: ''
-          });
+          onChange(title);
         }}
+        value={title}
       >
       </textarea>
     </span>

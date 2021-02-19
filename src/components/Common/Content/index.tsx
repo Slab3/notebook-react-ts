@@ -8,7 +8,7 @@ export default function Content() {
 
   useEffect(() => {
     console.log( notes );
-  }, [notes])
+  }, [notes]);
 
   return (
     <div className="notes" id="notes">

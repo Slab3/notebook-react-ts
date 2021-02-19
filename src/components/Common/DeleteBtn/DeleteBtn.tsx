@@ -5,21 +5,14 @@ import {Notes, useDeleteNote} from "../../../context/notes";
 import {Item} from "../../../types/item";
 
 interface INoteRemove {
-  onClick: (note: Item) => void;
+  onClick: () => void;
 }
 
 function DeleteBtn({ onClick }: INoteRemove) {
-  const deleteNote = useDeleteNote();
-  const { notes } = useContext(Notes); // using context
-
   return (
       <div className={styles.deleteBlock}
            onClick={() => {
-             deleteNote({
-               id: '',
-             }, {
-               note: '',
-             });
+             onClick();
            }}
       >
         <span className={styles.deleteItem}>Х</span>

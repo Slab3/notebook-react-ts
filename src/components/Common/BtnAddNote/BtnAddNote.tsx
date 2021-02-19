@@ -12,18 +12,12 @@ export default function BtnAddNote() {
           data-item-counter={counter}
           id="addItem"
           onClick={() => {
-            createNote({
-              id: '',
-              title: '',
-              description: '',
-              time: Date().toLocaleString(),
-            });
+            createNote('', '');
             setCounter(counter+1)
           }}
       >
         <p className={styles.plus}>+</p>
         <p>Add New</p>
-
       </div>
   )
 }

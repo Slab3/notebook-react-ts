@@ -1,5 +1,5 @@
 import React, {createContext, useContext, useEffect, useState} from 'react';
-import {Item} from "../types/item";
+import {Item, ItemInNode} from "../types/item";
 import {randomUniqueString} from "../util";
 
 export const Notes = createContext({
@@ -10,21 +10,27 @@ export const Notes = createContext({
 export function useCreateNote() {
   const { notes, setNotes } = useContext(Notes);
 
-  return (note: Item) => {
-    console.log( 1 );
-    note.id = randomUniqueString('noteId-');
-
-    setNotes([...notes, note]);
+  return (title: string, description: string): void => {
+    setNotes([...notes, {
+      id: randomUniqueString('noteId-'),
+      title,
+      description,
+      time: Date().toLocaleString(),
+      items: [] as ItemInNode[]
+    }]);
   };
 }
 
 export function useUpdateNote() {
   const { notes, setNotes } = useContext(Notes);
 
-  return (id: Item, note: Item) => { // id was with type :string
+  return (id: string, newNote: Item): void => { // id was with type :string
     const newNotes = [...notes];
+    const oldNote = newNotes.find(({ id: idNote }) => idNote === id);
 
-    Object.assign(newNotes.find(({ id: idNote }) => idNote === id), note);
+    if (oldNote) {
+      Object.assign(oldNote, newNote);
+    }
     setNotes(newNotes);
   }
 }
@@ -32,9 +38,8 @@ export function useUpdateNote() {
 export function useDeleteNote() {
   const { notes, setNotes } = useContext(Notes);
 
-  return (id: Item, note: Item) => { //  return (id: string, note: Item) => {
+  return (id: string): void => { //  return (id: string, note: Item) => {
     setNotes([...notes.filter(({ id: idNote }) => idNote !== id )]);
-    console.log("test delete note")
   }
 }
 

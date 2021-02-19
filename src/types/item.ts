@@ -1,9 +1,13 @@
+export interface ItemInNode {
+  id: string;
+  status: boolean;
+  description: string;
+}
+
 export interface Item {
-  item?: any; //?
-  id?: string;
-  title?: string;
-  name?: string;
-  description?: string;
-  time?: string;
-  note?: '';
+  id: string;
+  title: string;
+  description: string;
+  time: string;
+  items: ItemInNode[]
 }
