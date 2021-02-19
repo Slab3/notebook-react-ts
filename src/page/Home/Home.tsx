@@ -1,11 +1,11 @@
-import React, {useContext, useState} from 'react';
+import React from 'react';
+import { Search } from '../../components/index';
+import NotesProvider  from "../../context/notes";
+import Content from "../../components/Common/Content";
+
 import '../../styles/main.scss';
-import { BtnAddNote , Search, NoteWrapper } from '../../components/index';
-import NotesProvider, { Notes } from "../../context/notes";
 
 function App() {
-  const { notes } = useContext(Notes);
-
   return (
       <>
         <header className="header">
@@ -14,17 +14,11 @@ function App() {
         <section className="container main-section">
           <Search/>
           <NotesProvider>
-            <div className="notes" id="notes">
-              {notes.map((args: any) => (
-                  <NoteWrapper key={args.id} {...args} />
-                ))}
-              <BtnAddNote />
-            </div>
+            <Content /> {/*all notes and button*/}
           </NotesProvider>
         </section>
       </>
   );
 }
-
 
 export default App;
