@@ -8,7 +8,7 @@ import {Notes, useDeleteNote, useUpdateNote} from "../../../context/notes";
 
 
 export default function NoteWrapper(node: Item) {
-  console.log("- notewrapper... clicked... added... fdh ");
+  console.log("- notewrapper... clicked... added... fd ");
 
   const updateNote = useUpdateNote();
   const deleteNote = useDeleteNote();
