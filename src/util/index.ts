@@ -1,7 +1,6 @@
 export function genId() {
   return Math.random().toString(16).slice(-4)
 }
-console.log(genId());
 
 export function randomUniqueString(prefix: any) {
   return (prefix || '').concat([

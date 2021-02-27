@@ -13,8 +13,8 @@ export default function NoteTitle({ title, onChange }: INoteTitle) {
         className={styles.titleInput}
         placeholder="Title"
         maxLength={50}
-        onChange={() => {
-          onChange(title);
+        onChange={(e) => {
+          onChange(e.target.value);
         }}
         value={title}
       >

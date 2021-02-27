@@ -7,7 +7,7 @@ export default function Content() {
   const { notes } = useContext(Notes);
 
   useEffect(() => {
-    console.log( notes );
+    // console.log( notes );
   }, [notes]);
 
   return (
