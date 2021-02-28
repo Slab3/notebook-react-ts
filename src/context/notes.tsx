@@ -10,6 +10,8 @@ export const Notes = createContext({
 export function useCreateNote() {
   const { notes, setNotes } = useContext(Notes);
 
+  localStorage.setItem("notes", JSON.stringify(notes));
+
   return (title: string, description: string): void => {
     setNotes([...notes, {
       id: randomUniqueString('noteId-'),
@@ -48,7 +50,7 @@ interface ContextProvider {
 }
 
 export default function NotesProvider({ children }: ContextProvider): JSX.Element {
-  const [notes, setNotes] = useState<Item[]>([]);
+  const [notes, setNotes] = useState<Item[]>(JSON.parse(localStorage.getItem("notes")as any) || []);
 
   return (
     <Notes.Provider
