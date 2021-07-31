@@ -16,16 +16,4 @@ export function randomUniqueString(prefix: any) {
 }
 
 
-export default {
-  randomUniqueString
-}
-
-
-
-//
-  // let current = 0;
-  //
-  // export function randomUniqueString (prefix: number) {
-  //   return `${prefix || 'id'}-${current++}`
-  // }
-  // export function resetIdCounter () { current = 0 }
+export default randomUniqueString;

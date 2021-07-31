@@ -8,7 +8,7 @@ export default function AddTextareaBtn({ createItem }: any) {
           onClick={() => {
             createItem({
               id: '',
-              checkbox: '',
+              checkbox: '', // there must be status, as i see in "NoteWrapper"
               description: '',
               value: '',
             })

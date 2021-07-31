@@ -26,7 +26,7 @@ export function useCreateNote() {
 export function useUpdateNote() {
   const { notes, setNotes } = useContext(Notes);
 
-  return (id: string, newNote: Item): void => { // id was with type :string
+  return (id: string, newNote: Item): void => {
     const newNotes = [...notes];
     const oldNote = newNotes.find(({ id: idNote }) => idNote === id);
 
@@ -40,7 +40,7 @@ export function useUpdateNote() {
 export function useDeleteNote() {
   const { notes, setNotes } = useContext(Notes);
 
-  return (id: string): void => { //  return (id: string, note: Item) => {
+  return (id: string): void => {
     setNotes([...notes.filter(({ id: idNote }) => idNote !== id )]);
   }
 }
@@ -50,7 +50,8 @@ interface ContextProvider {
 }
 
 export default function NotesProvider({ children }: ContextProvider): JSX.Element {
-  const [notes, setNotes] = useState<Item[]>(JSON.parse(localStorage.getItem("notes")as any) || []);
+  // added storage
+  const [notes, setNotes] = useState<Item[]>(JSON.parse(localStorage.getItem("notes")as string) || []);
 
   return (
     <Notes.Provider
