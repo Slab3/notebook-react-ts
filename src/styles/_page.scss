@@ -23,12 +23,12 @@
   padding: 5px 15px;
   display: flex;
   background: transparent;
+
+  &.completed textarea {
+    text-decoration: line-through;
+    color: #76757f;
+  }
 }
-//.checkbox-N-Text { // styles when note item "checked"(finished)
-//  &.done textarea {
-//    text-decoration: line-through;
-//  }
-//}
 
 
 .alertContent {

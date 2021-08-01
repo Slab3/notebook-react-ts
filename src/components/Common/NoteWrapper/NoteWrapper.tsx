@@ -12,16 +12,35 @@ export default function NoteWrapper(note: Item) {
 
   const updateNote = useUpdateNote();
   const deleteNote = useDeleteNote();
+  // const toggleDesc = useToggleDesc();
+
   const createItem = () => {
     updateNote(note.id, {
       items: [
         ...note.items,
         {
           id: randomUniqueString('descId-'),
-          status: true,
+          status: false,
           description: ''
         }
       ]
+    } as Item)
+  };
+
+  const toggleItem = (id: string) => {
+    let newItems =
+      note.items.map((item) => {
+        if (item.id === id) {
+          return {
+            ...item,
+            status: !item.status
+          }
+        }
+        return item
+      });
+
+    updateNote(note.id, {
+      items: newItems
     } as Item)
   };
 
@@ -36,10 +55,12 @@ export default function NoteWrapper(note: Item) {
             title
           } as Item)}
         />
-        {note.items.map(({ id, description }) => (
+        {note.items.map(({ id, description, status }) => (
           <BodyNoteText
             key={id}
             description={description}
+            id={id}
+            status={status}
             onChange={(description: string) => {
               const newItems = [...note.items] as ItemInNote[];
               const item = newItems.find((item: ItemInNote) => item.id === id);
@@ -54,6 +75,7 @@ export default function NoteWrapper(note: Item) {
                 items: newItems
               } as Item)
             }}
+            onToggle={(id: string) => toggleItem(id)}
           />
         ))}
         <AddTextareaBtn createItem={createItem}/>

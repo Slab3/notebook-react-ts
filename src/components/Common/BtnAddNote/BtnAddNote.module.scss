@@ -15,9 +15,10 @@
   .plus {font-size: 108px;}
 }
 
-@media all and (max-width: 800px) {
+// if changing this media - need to change "NoteWrapper" media too
+@media all and (max-width: 1000px) {
   .addItem {width: calc(50% - 20px)}
 }
-@media all and (max-width: 470px) {
+@media all and (max-width: 550px) {
   .addItem {width: calc(100% - 20px)}
 }

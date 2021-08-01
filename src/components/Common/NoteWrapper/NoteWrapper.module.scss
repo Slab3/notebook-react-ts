@@ -21,9 +21,10 @@
   }
 }
 
-@media all and (max-width: 800px) {
+// if changing this media - need to change "BtnAddNote" media too
+@media all and (max-width: 1000px) {
   .noteItem {width: calc(50% - 20px)}
 }
-@media all and (max-width: 470px) {
+@media all and (max-width: 550px) {
   .noteItem {width: calc(100% - 20px)}
 }
