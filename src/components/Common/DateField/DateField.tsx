@@ -1,12 +1,15 @@
 import React from 'react';
 import styles from './DateField.module.scss';
 
-export default function DateField() {
-  let now = new Date().toLocaleString();
+interface ITime {
+  time: string;
+}
+
+export default function DateField({time}: ITime) {
   return (
       <div className={styles.dateBlock}>
           <span className={styles.dateField}>
-            {now}
+            {time}
           </span>
       </div>
   )

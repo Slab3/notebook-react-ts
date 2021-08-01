@@ -17,7 +17,7 @@ export function useCreateNote() {
       id: randomUniqueString('noteId-'),
       title,
       description,
-      time: Date().toLocaleString(),
+      time: new Date().toLocaleString(),
       color: generateColor(),
       items: [] as ItemInNote[]
     }]);

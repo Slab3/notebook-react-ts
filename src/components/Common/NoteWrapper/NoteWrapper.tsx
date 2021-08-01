@@ -57,7 +57,7 @@ export default function NoteWrapper(note: Item) {
           />
         ))}
         <AddTextareaBtn createItem={createItem}/>
-        <DateField/>
+        <DateField time={note.time}/>
       </div>
   )
 }
