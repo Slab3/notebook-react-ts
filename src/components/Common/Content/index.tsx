@@ -33,7 +33,7 @@ export default function Content() {
 
   return (
     <>
-      <Search search={search} onSearchChange={searchChangeHandler}/>
+      <Search search={search} onSearchChange={searchChangeHandler} setSearch={setSearch}/>
       {filterByTitle.length === 0 && notes.length !== 0 && filteredNotes.length !== 0 ? noTitleMatchAlert : null}
       {notes.length === 0 ? noNotesAlert : null}
       {filteredNotes.length === 0 && notes.length !== 0 ? nothingFoundAlert : null}

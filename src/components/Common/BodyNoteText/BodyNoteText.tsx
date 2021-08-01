@@ -35,8 +35,7 @@ export default function BodyNoteText({ description, onChange, id, status, onTogg
             onChange(e.target.value);
           }}
           maxRows={80}
-        >
-          </TextareaAutosize>
+        />
       </div>
     </div>
   )

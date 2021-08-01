@@ -24,6 +24,9 @@
   display: flex;
   background: transparent;
 
+  textarea {
+    transition: 0.4s ease;
+  }
   &.completed textarea {
     text-decoration: line-through;
     color: #76757f;
