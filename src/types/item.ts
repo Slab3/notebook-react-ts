@@ -10,4 +10,5 @@ export interface Item {
   description: string;
   time: string;
   items: ItemInNode[]
+  color: string
 }

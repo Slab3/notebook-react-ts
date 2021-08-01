@@ -26,7 +26,7 @@ export default function NoteWrapper(node: Item) {
   };
 
   return (
-      <div className={styles.noteItem}>
+      <div className={styles.noteItem} style={{backgroundColor: node.color}}>
         <DeleteBtn
           onClick={() => deleteNote(node.id)}
         />

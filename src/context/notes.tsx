@@ -1,6 +1,6 @@
 import React, {createContext, useContext, useEffect, useState} from 'react';
 import {Item, ItemInNode} from "../types/item";
-import {randomUniqueString} from "../util";
+import {generateColor, randomUniqueString} from "../util";
 
 export const Notes = createContext({
   notes: [] as Item[],
@@ -18,6 +18,7 @@ export function useCreateNote() {
       title,
       description,
       time: Date().toLocaleString(),
+      color: generateColor(),
       items: [] as ItemInNode[]
     }]);
   };
