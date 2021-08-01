@@ -1,23 +1,12 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import styles from './InputSearch.module.scss';
 
 interface IFilterNotes {
   search: string
   onSearchChange(event: React.ChangeEvent): void
-  setSearch: React.Dispatch<React.SetStateAction<string>>
-
 }
 
-export default function Search( { search, onSearchChange, setSearch }: IFilterNotes ) {
-
-  useEffect(()=> {
-    const saved = JSON.parse(localStorage.getItem("search") || "") as string;
-    setSearch(saved);
-  }, []);
-
-  useEffect(()=> {
-    localStorage.setItem("search", JSON.stringify(search));
-  },[search]);
+export default function Search( { search, onSearchChange }: IFilterNotes ) {
 
   return (
     <div className={styles.searchField}>

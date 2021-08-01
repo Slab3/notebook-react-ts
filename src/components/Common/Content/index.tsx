@@ -1,4 +1,4 @@
-import React, {useContext, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import {BtnAddNote, NoteWrapper, Search} from "../../index";
 import {Item} from "../../../types/item";
 import {Notes} from "../../../context/notes";
@@ -11,6 +11,13 @@ export default function Content() {
   const searchChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(event.target.value)
   };
+
+  // localStorage for "search"
+  useEffect(()=> {
+    const saved = JSON.parse(localStorage.getItem("search") || "") as string;
+    setSearch(saved);
+  }, []);
+  useEffect(()=> { localStorage.setItem("search", JSON.stringify(search)); },[search]);
 
   let filterByTitle = notes.filter((note) => {
     return note.title.toUpperCase().indexOf(search.toUpperCase()) >= 0;
@@ -33,7 +40,7 @@ export default function Content() {
 
   return (
     <>
-      <Search search={search} onSearchChange={searchChangeHandler} setSearch={setSearch}/>
+      <Search search={search} onSearchChange={searchChangeHandler} />
       {filterByTitle.length === 0 && notes.length !== 0 && filteredNotes.length !== 0 ? noTitleMatchAlert : null}
       {notes.length === 0 ? noNotesAlert : null}
       {filteredNotes.length === 0 && notes.length !== 0 ? nothingFoundAlert : null}

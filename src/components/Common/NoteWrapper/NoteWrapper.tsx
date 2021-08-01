@@ -44,8 +44,17 @@ export default function NoteWrapper(note: Item) {
     } as Item)
   };
 
+
+  // when any item in note changes - updating "time"
+  const updateTime = ()=> {
+    updateNote(note.id, {
+      time: new Date().toLocaleString()
+    } as Item)
+  };
+
+
   return (
-      <div className={styles.noteItem} style={{backgroundColor: note.color}}>
+      <div className={styles.noteItem} style={{backgroundColor: note.color}} onChange={updateTime}>
         <DeleteBtn
           onClick={() => deleteNote(note.id)}
         />
