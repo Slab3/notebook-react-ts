@@ -15,5 +15,16 @@ export function randomUniqueString(prefix: any) {
   ].join(''))
 }
 
+export function generateColor() {
+  return "hsl(" + 360 * Math.random() + ',' +
+    (25 + 70 * Math.random()) + '%,' +
+    (85 + 10 * Math.random()) + '%)'
+}
 
-export default randomUniqueString;
+
+const exportUtil = {
+  randomUniqueString,
+  generateColor
+};
+
+export default exportUtil;

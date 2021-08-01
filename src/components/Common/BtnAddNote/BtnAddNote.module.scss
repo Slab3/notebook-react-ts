@@ -14,3 +14,10 @@
 
   .plus {font-size: 108px;}
 }
+
+@media all and (max-width: 800px) {
+  .addItem {width: calc(50% - 20px)}
+}
+@media all and (max-width: 470px) {
+  .addItem {width: calc(100% - 20px)}
+}

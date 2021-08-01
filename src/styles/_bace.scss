@@ -35,3 +35,7 @@ a, a:hover {
   margin: 0 auto;
   padding: 0;
 }
+
+@media all and (max-width: 900px) {
+  .container {width: 90%}
+}

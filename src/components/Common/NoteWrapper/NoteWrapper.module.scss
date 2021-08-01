@@ -21,3 +21,9 @@
   }
 }
 
+@media all and (max-width: 800px) {
+  .noteItem {width: calc(50% - 20px)}
+}
+@media all and (max-width: 470px) {
+  .noteItem {width: calc(100% - 20px)}
+}
