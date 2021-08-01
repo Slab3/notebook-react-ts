@@ -12,7 +12,6 @@ export default function NoteWrapper(note: Item) {
 
   const updateNote = useUpdateNote();
   const deleteNote = useDeleteNote();
-  // const toggleDesc = useToggleDesc();
 
   const createItem = () => {
     updateNote(note.id, {

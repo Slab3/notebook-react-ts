@@ -14,10 +14,10 @@ export default function Content() {
 
   // localStorage for "search"
   useEffect(()=> {
-    const saved = JSON.parse(localStorage.getItem("search") || "") as string;
+    const saved = localStorage.getItem("search") || "" as string;
     setSearch(saved);
   }, []);
-  useEffect(()=> { localStorage.setItem("search", JSON.stringify(search)); },[search]);
+  useEffect(()=> { localStorage.setItem("search", search); },[search]);
 
   let filterByTitle = notes.filter((note) => {
     return note.title.toUpperCase().indexOf(search.toUpperCase()) >= 0;
