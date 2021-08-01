@@ -1,8 +1,5 @@
-import React, {useContext, useState} from 'react';
+import React from 'react';
 import styles from './DeleteBtn.module.scss';
-// import notes, {useDeleteNote} from "../../../context/notes";
-import {Notes, useDeleteNote} from "../../../context/notes";
-import {Item} from "../../../types/item";
 
 interface INoteRemove {
   onClick: () => void;
@@ -15,7 +12,7 @@ function DeleteBtn({ onClick }: INoteRemove) {
              onClick();
            }}
       >
-        <span className={styles.deleteItem}>Х</span>
+        <span className={styles.deleteItem}>×</span>
       </div>
   )
 }

@@ -1,21 +1,21 @@
-import React, {useContext, useState} from 'react';
+import React from 'react';
 import styles from './NoteWrapper.module.scss';
 import '../../../styles/main.scss';
 import {DeleteBtn, NoteTitle, BodyNoteText, AddTextareaBtn, DateField} from '../../index';
 import {randomUniqueString} from "../../../util";
-import {Item, ItemInNode} from '../../../types/item';
-import {Notes, useDeleteNote, useUpdateNote} from "../../../context/notes";
+import {Item, ItemInNote} from '../../../types/item';
+import {useDeleteNote, useUpdateNote} from "../../../context/notes";
 
 
-export default function NoteWrapper(node: Item) {
+export default function NoteWrapper(note: Item) {
   console.log("- notewrapper... clicked... added... fd ");
 
   const updateNote = useUpdateNote();
   const deleteNote = useDeleteNote();
   const createItem = () => {
-    updateNote(node.id, {
+    updateNote(note.id, {
       items: [
-        ...node.items,
+        ...note.items,
         {
           id: randomUniqueString('descId-'),
           status: true,
@@ -26,23 +26,23 @@ export default function NoteWrapper(node: Item) {
   };
 
   return (
-      <div className={styles.noteItem} style={{backgroundColor: node.color}}>
+      <div className={styles.noteItem} style={{backgroundColor: note.color}}>
         <DeleteBtn
-          onClick={() => deleteNote(node.id)}
+          onClick={() => deleteNote(note.id)}
         />
         <NoteTitle
-          title={node.title}
-          onChange={(title: string) => updateNote(node.id, {
+          title={note.title}
+          onChange={(title: string) => updateNote(note.id, {
             title
           } as Item)}
         />
-        {node.items.map(({ id, description }) => (
+        {note.items.map(({ id, description }) => (
           <BodyNoteText
             key={id}
             description={description}
             onChange={(description: string) => {
-              const newItems = [...node.items] as ItemInNode[];
-              const item = newItems.find((item: ItemInNode) => item.id === id);
+              const newItems = [...note.items] as ItemInNote[];
+              const item = newItems.find((item: ItemInNote) => item.id === id);
 
               if (item) {
                 Object.assign(item, {
@@ -50,7 +50,7 @@ export default function NoteWrapper(node: Item) {
                 });
               }
 
-              updateNote(node.id, {
+              updateNote(note.id, {
                 items: newItems
               } as Item)
             }}

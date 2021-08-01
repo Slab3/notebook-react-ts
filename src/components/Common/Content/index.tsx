@@ -16,10 +16,10 @@ export default function Content() {
     return note.title.toUpperCase().indexOf(search.toUpperCase()) >= 0;
   });
   let filterByDescription = notes.filter((note) => {
-    let newNotesItem = note.items.map((item)=>{
+    let noteItemDesc = note.items.map((item)=>{
       return item.description;
     });
-    return newNotesItem.toLocaleString().toUpperCase().indexOf(search.toUpperCase()) >= 0;
+    return noteItemDesc.toLocaleString().toUpperCase().indexOf(search.toUpperCase()) >= 0;
   });
 
   // new array with filtered notes

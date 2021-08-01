@@ -1,4 +1,4 @@
-export interface ItemInNode {
+export interface ItemInNote {
   id: string;
   status: boolean;
   description: string;
@@ -9,6 +9,6 @@ export interface Item {
   title: string;
   description: string;
   time: string;
-  items: ItemInNode[]
+  items: ItemInNote[]
   color: string
 }
