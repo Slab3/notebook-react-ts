@@ -1,14 +1,17 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styles from './NoteWrapper.module.scss';
 import '../../../styles/main.scss';
 import {DeleteBtn, NoteTitle, BodyNoteText, AddTextareaBtn, DateField} from '../../index';
 import {randomUniqueString} from "../../../util";
 import {Item, ItemInNote} from '../../../types/item';
 import {useDeleteNote, useUpdateNote} from "../../../context/notes";
+import Modal from "../Modal/Modal";
 
 
 export default function NoteWrapper(note: Item) {
   console.log("- notewrapper... clicked... added... fd ");
+
+  const [modalActive, setModalActive] = useState<boolean>(false);
 
   const updateNote = useUpdateNote();
   const deleteNote = useDeleteNote();
@@ -25,7 +28,6 @@ export default function NoteWrapper(note: Item) {
       ]
     } as Item)
   };
-
 
   const toggleItem = (id: string) => {
     let newItems =
@@ -62,8 +64,14 @@ export default function NoteWrapper(note: Item) {
 
   return (
       <div className={styles.noteItem} style={{backgroundColor: note.color}} onChange={updateTime}>
+        <Modal
+          isActive={modalActive}
+          setActive={setModalActive}
+          deleteNote={deleteNote}
+          id={note.id}
+        />
         <DeleteBtn
-          onClick={() => deleteNote(note.id)}
+          onClick={() => setModalActive(true)}
         />
         <NoteTitle
           title={note.title}
