@@ -26,6 +26,7 @@ export default function NoteWrapper(note: Item) {
     } as Item)
   };
 
+
   const toggleItem = (id: string) => {
     let newItems =
       note.items.map((item) => {
@@ -43,7 +44,6 @@ export default function NoteWrapper(note: Item) {
     } as Item)
   };
 
-
   // when any item in note changes - updating "time"
   const updateTime = ()=> {
     updateNote(note.id, {
@@ -51,6 +51,14 @@ export default function NoteWrapper(note: Item) {
     } as Item)
   };
 
+  // delete description item from "note.items[]"
+  const removeDescription = (event: React.KeyboardEvent, id: string) => {
+    let newItems = note.items.filter((item)=> item.id !== id);
+
+    updateNote(note.id, {
+      items: newItems
+    } as Item)
+  };
 
   return (
       <div className={styles.noteItem} style={{backgroundColor: note.color}} onChange={updateTime}>
@@ -69,6 +77,7 @@ export default function NoteWrapper(note: Item) {
             description={description}
             id={id}
             status={status}
+            removeDesc={removeDescription}
             onChange={(description: string) => {
               const newItems = [...note.items] as ItemInNote[];
               const item = newItems.find((item: ItemInNote) => item.id === id);

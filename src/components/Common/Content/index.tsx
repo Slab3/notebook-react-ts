@@ -37,9 +37,19 @@ export default function Content() {
   const noTitleMatchAlert = (<li className={"alertContent"}>No title matches found. Search by description...</li>);
   const nothingFoundAlert = (<li className={"alertContent"}>You don't have a note with this title or description!</li>);
 
+  const removeAllItems = ()=> {
+    const confirmDeletion = window.confirm('Are you sure, you want to delete all notes?');
+    if (confirmDeletion) {
+      localStorage.setItem("notes", JSON.stringify([]));
+      localStorage.setItem("search", "");
+      window.location.reload();
+    }
+  };
 
   return (
     <>
+      <button className={"remove-all-btn"} onClick={()=> removeAllItems()}>Remove all notes</button>
+
       <Search search={search} onSearchChange={searchChangeHandler} />
       {filterByTitle.length === 0 && notes.length !== 0 && filteredNotes.length !== 0 ? noTitleMatchAlert : null}
       {notes.length === 0 ? noNotesAlert : null}

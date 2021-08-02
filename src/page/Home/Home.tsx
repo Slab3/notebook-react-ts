@@ -1,5 +1,4 @@
-import React, {useState} from 'react';
-import { Search } from '../../components/index';
+import React from 'react';
 import NotesProvider  from "../../context/notes";
 import Content from "../../components/Common/Content";
 

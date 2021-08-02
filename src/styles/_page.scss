@@ -40,3 +40,21 @@
   margin: 0 0 15px;
   color: #b00000;
 }
+
+
+// button for remove all notes from storage
+.remove-all-btn {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  width: 60px;
+  cursor: pointer;
+  border: 1px solid grey;
+  border-radius: 5px;
+  background-color: #dbced7;
+  transition: 0.3s ease;
+
+  &:hover {
+    background-color: #d3b9c1;
+  }
+}
