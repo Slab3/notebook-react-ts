@@ -6,6 +6,9 @@ import NoteTitle from './Common/NoteTitle/NoteTitle';
 import BodyNoteText from './Common/BodyNoteText/BodyNoteText';
 import AddTextareaBtn from './Common/AddTextareaBtn/AddTextareaBtn';
 import DateField from './Common/DateField/DateField';
+// new
+import Modal from './Common/Modal/Modal'
+import InputUpload from './Common/InputUpload/InputUpload'
 
 
 export {
@@ -16,5 +19,8 @@ export {
   NoteTitle,
   BodyNoteText,
   AddTextareaBtn,
-  DateField
+  DateField,
+  //new
+  Modal,
+  InputUpload,
 }

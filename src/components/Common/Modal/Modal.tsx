@@ -5,19 +5,22 @@ interface IModal {
   isActive: boolean
   setActive: React.Dispatch<React.SetStateAction<boolean>>
   id: string
-  deleteNote(id:string): void
+  functionEvent(id:string): void
   // type: string
 }
 
-export const Modal: React.FC<IModal> = ({isActive, setActive, id, deleteNote}) => {
+export const Modal: React.FC<IModal> = ({isActive, setActive, id, functionEvent}) => {
+  if (isActive) {document.body.style.overflow = "hidden"} // turn off scroll when "modal" active
+  if (!isActive) {document.body.style.overflow = "visible"}
 
   const removeNote = ()=> {
     setActive(false);
     //if need animation of closing element - add timeout.
     setTimeout(()=> {
-      deleteNote(id);
+      functionEvent(id);                     //deleteNote
     },200)
   };
+
 
   return (
     <div className={isActive ? "modal active" : "modal"} onClick={() => setActive(false)}>
@@ -36,6 +39,5 @@ export const Modal: React.FC<IModal> = ({isActive, setActive, id, deleteNote}) =
     </div>
   )
 };
-
 
 export default Modal;

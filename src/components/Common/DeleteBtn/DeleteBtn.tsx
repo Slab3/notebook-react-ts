@@ -5,7 +5,7 @@ interface INoteRemove {
   onClick: () => void;
 }
 
-function DeleteBtn({ onClick }: INoteRemove) {
+export default function DeleteBtn({ onClick }: INoteRemove) {
   return (
       <div className={styles.deleteBlock}
            onClick={() => {
@@ -16,5 +16,3 @@ function DeleteBtn({ onClick }: INoteRemove) {
       </div>
   )
 }
-
-export default DeleteBtn;

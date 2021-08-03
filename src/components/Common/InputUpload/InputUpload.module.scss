@@ -1,0 +1,22 @@
+.dropArea {
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 30px;
+}
+
+.dropAreaInactive {
+  border: 2px dashed #ffffff;
+}
+
+.dropAreaActive {
+  border: 2px dashed #95bd95;
+  background-color: rgba(131, 202, 112, 0.2);
+}
+
+//.dropAreaErrorType {
+//  border: 2px dashed #bd949c;
+//  background-color: rgba(202, 61, 68, 0.2);
+//}
