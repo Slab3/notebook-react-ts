@@ -1,4 +1,4 @@
-import React, {useCallback, useState} from 'react';
+import React, { useState} from 'react';
 import styles from './NoteWrapper.module.scss';
 import '../../../styles/main.scss';
 import {DeleteBtn, NoteTitle, BodyNoteText, AddTextareaBtn, DateField, Modal, InputUpload} from '../../index';
@@ -8,7 +8,7 @@ import {useDeleteNote, useUpdateNote} from "../../../context/notes";
 
 
 export default function NoteWrapper(note: Item) {
-  // console.log("- notewrapper... clicked... added... fd ");
+  // console.log("- NoteWrapper render ");
 
   const [modalActive, setModalActive] = useState<boolean>(false);
 
@@ -19,7 +19,7 @@ export default function NoteWrapper(note: Item) {
   const updateNote = useUpdateNote();
   const deleteNote = useDeleteNote();
 
-  const createItem = useCallback(() => {
+  const createItem = () => {
     updateNote(note.id, {
       items: [
         ...note.items,
@@ -30,9 +30,9 @@ export default function NoteWrapper(note: Item) {
         }
       ]
     } as Item)
-  }, [note, updateNote]);
+  };
 
-  const toggleItem = useCallback((id: string) => {
+  const toggleItem = (id: string) => {
     // console.log("toggle item render!")
 
     let newItems =
@@ -49,26 +49,26 @@ export default function NoteWrapper(note: Item) {
     updateNote(note.id, {
       items: newItems
     } as Item)
-  }, [note, updateNote]);
+  };
 
   // when any item in note changes - updating "time"
-  const updateTime = useCallback(()=> {
+  const updateTime = ()=> {
     updateNote(note.id, {
       time: new Date().toLocaleString()
     } as Item)
-  }, [note, updateNote]);
+  };
 
   // delete description item from "note.items[]"
-  const removeDescription = useCallback((event: React.KeyboardEvent, id: string) => {
+  const removeDescription = (event: React.KeyboardEvent, id: string) => {
     let newItems = note.items.filter((item)=> item.id !== id);
 
     updateNote(note.id, {
       items: newItems
     } as Item)
-  }, [note, updateNote]);
+  };
 
   // on upload create new note with text which was in file
-  const onUpload = useCallback((text: string) => {
+  const onUpload = (text: string) => {
     updateNote(note.id, {
       items: [
         ...note.items,
@@ -79,7 +79,7 @@ export default function NoteWrapper(note: Item) {
         }
       ]
     } as Item)
-  }, [note, updateNote]);
+  };
 
   return (
       <div className={styles.noteItem} style={{backgroundColor: note.color}} onChange={updateTime}>

@@ -8,14 +8,24 @@
   max-width: 1200px;
 
 
-  div:hover { //delete button visib
-    div span {
+  div:hover { // 'delete span' and 'add item button' visib
+    div span, div button {
       opacity: 1;
     }
-    div button { //add item visib
-      opacity: 1;
-    }
+    // animation for upload input
+    //#uploadInput {
+    //  opacity: 1;
+    //  transform: translateY(10px);
+    //}
   };
+}
+
+@media all and (max-width: 450px) {
+  .notes {
+    div span, div button {
+      opacity: 1;
+    }
+  }
 }
 
 // checkbox block - CheckboxNTextWrapper
