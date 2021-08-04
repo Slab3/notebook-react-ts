@@ -9,6 +9,7 @@ import DateField from './Common/DateField/DateField';
 // new
 import Modal from './Common/Modal/Modal'
 import InputUpload from './Common/InputUpload/InputUpload'
+import Tooltip from './Common/Tooltip/Tooltip'
 
 
 export {
@@ -23,4 +24,5 @@ export {
   //new
   Modal,
   InputUpload,
+  Tooltip,
 }
