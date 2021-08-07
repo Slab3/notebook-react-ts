@@ -8,9 +8,7 @@ interface INoteRemove {
 export default function DeleteBtn({ onClick }: INoteRemove) {
   return (
       <div className={styles.deleteBlock}
-           onClick={() => {
-             onClick();
-           }}
+           onClick={() => onClick()}
       >
         <span className={styles.deleteItem}>×</span>
       </div>

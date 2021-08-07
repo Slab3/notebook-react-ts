@@ -12,7 +12,7 @@ export const Modal: React.FC<IModal> = ({isActive, setActive, id, functionEvent}
   if (isActive) {document.body.style.overflow = "hidden"} // turn off scroll when "modal" active
   if (!isActive) {document.body.style.overflow = "visible"}
 
-  const removeNote = ()=> {
+  const removeNote = (): void => {
     setActive(false);
     //if need animation of closing element - add timeout.
     setTimeout(()=> {

@@ -26,10 +26,14 @@ export function useCreateNote() {
 
 export function useUpdateNote() {
   const { notes, setNotes } = useContext(Notes);
+  console.log(notes);
 
   return (id: string, newNote: Item): void => {
-    const newNotes = [...notes];
+    // const newNotes = [...notes];
+    const newNotes = Object.assign([],notes); // still shallow copy, but without spread operator.
+
     const oldNote = newNotes.find(({ id: idNote }) => idNote === id);
+    console.log(newNotes);
 
     if (oldNote) {
       Object.assign(oldNote, newNote);
@@ -51,7 +55,6 @@ interface ContextProvider {
 }
 
 export default function NotesProvider({ children }: ContextProvider): JSX.Element {
-  // added storage
   const [notes, setNotes] = useState<Item[]>(JSON.parse(localStorage.getItem("notes")as string) || []);
 
   return (

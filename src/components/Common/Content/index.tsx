@@ -19,10 +19,10 @@ export default function Content() {
   }, []);
   useEffect(()=> { localStorage.setItem("search", search); },[search]);
 
-  let filterByTitle = notes.filter((note) => {
+  let filterByTitle = notes.filter((note): boolean => {
     return note.title.toUpperCase().indexOf(search.toUpperCase()) >= 0;
   });
-  let filterByDescription = notes.filter((note) => {
+  let filterByDescription = notes.filter((note): boolean => {
     let noteItemDesc = note.items.map((item)=>{
       return item.description;
     });
@@ -37,7 +37,7 @@ export default function Content() {
   const noTitleMatchAlert = (<li className={"alertContent"}>No title matches found. Search by description...</li>);
   const nothingFoundAlert = (<li className={"alertContent"}>You don't have a note with this title or description!</li>);
 
-  const removeAllItems = ()=> {
+  const removeAllItems = (): void => {
     const confirmDeletion = window.confirm('Are you sure, you want to delete all notes?');
     if (confirmDeletion) {
       localStorage.setItem("notes", JSON.stringify([]));

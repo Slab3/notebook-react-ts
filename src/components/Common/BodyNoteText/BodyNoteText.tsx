@@ -16,7 +16,7 @@ export default function BodyNoteText({ description, onChange, id, status, onTogg
   // if description length before keyDown was !== 0, don't delete item. if === 0 - delete.
   const [lengthDesc, setLengthDesc] = useState<number>(description.length);
 
-  const keyPressHandler = (event: React.KeyboardEvent) => {
+  const keyPressHandler = (event: React.KeyboardEvent): void => {
     if (lengthDesc === 0 && event.key === "Backspace") {
       removeDesc(event, id)
     }

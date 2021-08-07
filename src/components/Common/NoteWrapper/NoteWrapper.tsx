@@ -9,17 +9,13 @@ import {useDeleteNote, useUpdateNote} from "../../../context/notes";
 
 export default function NoteWrapper(note: Item) {
   // console.log("- NoteWrapper render ");
-
   const [modalActive, setModalActive] = useState<boolean>(false);
-
-  // test drag and drop upload
   const [drag, setDrag] = useState<boolean>(false);
-  // test drag and drop upload
 
   const updateNote = useUpdateNote();
   const deleteNote = useDeleteNote();
 
-  const createItem = () => {
+  const createItem = (): void => {
     updateNote(note.id, {
       items: [
         ...note.items,
@@ -32,8 +28,7 @@ export default function NoteWrapper(note: Item) {
     } as Item)
   };
 
-  const toggleItem = (id: string) => {
-    // console.log("toggle item render!")
+  const toggleItem = (id: string): void => {
 
     let newItems =
       note.items.map((item) => {
@@ -52,14 +47,14 @@ export default function NoteWrapper(note: Item) {
   };
 
   // when any item in note changes - updating "time"
-  const updateTime = ()=> {
+  const updateTime = (): void => {
     updateNote(note.id, {
       time: new Date().toLocaleString()
     } as Item)
   };
 
   // delete description item from "note.items[]"
-  const removeDescription = (event: React.KeyboardEvent, id: string) => {
+  const removeDescription = (event: React.KeyboardEvent, id: string): void => {
     let newItems = note.items.filter((item)=> item.id !== id);
 
     updateNote(note.id, {
@@ -68,7 +63,7 @@ export default function NoteWrapper(note: Item) {
   };
 
   // on upload create new note with text which was in file
-  const onUpload = (text: string) => {
+  const onUpload = (text: string): void => {
     updateNote(note.id, {
       items: [
         ...note.items,
@@ -83,7 +78,6 @@ export default function NoteWrapper(note: Item) {
 
   return (
       <div className={styles.noteItem} style={{backgroundColor: note.color}} onChange={updateTime}>
-        {/*{(()=> console.log('render div note wrapper'))()}*/}
         <Modal
           isActive={modalActive}
           setActive={setModalActive}
@@ -119,7 +113,6 @@ export default function NoteWrapper(note: Item) {
               updateNote(note.id, {
                 items: newItems
               } as Item)
-              // console.log('update in func body note text')
             }}
             onToggle={(id: string) => toggleItem(id)}
           />
